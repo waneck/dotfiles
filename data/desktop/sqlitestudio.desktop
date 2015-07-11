@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=SqliteStudio
+GenericName=Sqlite admin tool
+Comment=Administer and develop your Sqlite3 databases
+Exec=sqlitestudio %f
+TryExec=sqlitestudio
+Icon=gnumeric
+StartupNotify=true
+Terminal=false
+MimeType=application/x-sqlite3;
+Categories=Development;

@@ -1,5 +1,5 @@
 # put here initial configurations
-main: ${ID_RSA} ${LOWSEC_ID_RSA} zsh
+main: ${ID_RSA} ${LOWSEC_ID_RSA}
 
 .PHONY: main
 

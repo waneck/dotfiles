@@ -1,8 +1,5 @@
-all: stamps/init stamps/basic
+basic: main keyboard apps
+
+all: basic theme shortcuts
 
 include *.mk
-
-init: stamps/init
-
-stamps/init:
-	sudo apt-get install vim
