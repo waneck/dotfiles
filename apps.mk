@@ -1,4 +1,4 @@
-apps: git ocaml vim zsh dev stamps/keepass gooogle-earth
+apps: git ocaml vim zsh dev stamps/keepass gooogle-earth stamps/sparkleshare
 
 dev: stamps/java stamps/mono stamps/devmisc ocaml
 
@@ -92,5 +92,9 @@ stamps/google-earth:
 	wget -O /tmp/earth.deb http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb
 	sudo dpkg -i /tmp/earth.deb
 	touch $@
+
+stamps/sparkleshare:
+	sudo apt-get install -y sparkleshare
+	echo $@
 
 .PHONY: zsh ocaml git apps google-earth
