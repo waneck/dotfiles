@@ -116,7 +116,7 @@ stamps/unity-extensions:
 
 stamps/fonts:
 	- mv ${HOME}/.fonts ${HOME}/.fonts.bkp
-	ln -s ${PWD}/data/theme/fonts ${HOME}/.fonts
+	ln -s ${PWD}/data/themes/fonts ${HOME}/.fonts
 	touch $@
 
 stamps/variety:
@@ -127,3 +127,7 @@ stamps/variety:
 	/bin/bash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,banned.txt,*.conf}"
 	ln -s ${PWD}/data/themes/variety/* ${HOME}/.config/variety
 	touch $@
+
+stamps/atom-launcher:
+	git clone https://github.com/ozonos/atom-launcher.git /tmp/atom
+	cd /tmp/atom && sudo make install
