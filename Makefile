@@ -1,5 +1,5 @@
 basic: main keyboard apps
 
-all: basic theme shortcuts
+all: basic theme 
 
 include *.mk

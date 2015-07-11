@@ -1,4 +1,4 @@
-apps: git ocaml vim zsh dev stamps/keepass gooogle-earth stamps/sparkleshare
+apps: git ocaml vim zsh dev stamps/keepass google-earth stamps/sparkleshare
 
 dev: stamps/java stamps/mono stamps/devmisc ocaml
 
@@ -17,26 +17,28 @@ ocaml: stamps/ocaml
 stamps/ocaml:
 	# install ocaml from sources to get ocamlopt.opt
 	- sudo apt-get remove ocaml
+	sudo apt-get install -y opam
+	opam init
 	wget http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.2.tar.xz -O /tmp/ocaml.tar.xz
 	cd /tmp && tar -xvf ocaml.tar.xz && cd ocaml-4.02.2 && ./configure --prefix /usr && make world.opt && sudo make install
 	# I don't know why anyone would prefer ocamlopt over ocamlopt.opt
 	# hmm. maybe this https://xkcd.com/303/
 	sudo mv /usr/bin/ocamlopt /usr/bin/ocamlopt.nopt
 	sudo cp /usr/bin/ocamlopt.opt /usr/bin/ocamlopt
-	sudo apt-get install -y opam
-	opam init
 	touch $@
 
-vim: stamps/vim
+vim: stamps/vim stamps/gvim
 
 stamps/vim:
 	sudo apt-get install -y vim ctags
-	git clone --recursive git@github.com:waneck/vimrc-1.git ${HOME}/.vim_runtime
+	git clone --recursive https://github.com/waneck/vimrc-1.git ${HOME}/.vim_runtime
 	ln -s ${PWD}/data/my_configs.vim ${HOME}/.vim_runtime
 	sh ${HOME}/.vim_runtime/install_awesome_vimrc.sh
+	touch $@
 
 stamps/gvim: stamps/vim
 	sudo apt-get install -y vim-gtk
+	touch $@
 
 #zsh
 zsh: git ${HOME}/.oh-my-zsh stamps/zsh
@@ -77,7 +79,7 @@ stamps/keepass:
 	wget https://bitbucket.org/devinmartin/keeotp/downloads/KeeOtp-1.3.1-Full.zip -O /tmp/otp.zip
 	rm -rf /tmp/otp
 	mkdir -p /tmp/otp && cd /tmp/otp && unzip ../otp.zip
-	sudo cp tmp/otp/*.plgx ${KEEPASS}/plugins
+	sudo cp -rf /tmp/otp/* ${KEEPASS}/plugins
 	touch $@
 
 stamps/hexchat:
@@ -95,6 +97,6 @@ stamps/google-earth:
 
 stamps/sparkleshare:
 	sudo apt-get install -y sparkleshare
-	echo $@
+	touch $@
 
 .PHONY: zsh ocaml git apps google-earth

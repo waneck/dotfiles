@@ -8,11 +8,15 @@ stamps/gnome-init:
 	sudo apt-get install -y gnome-tweak-tool
 	touch $@
 
+stamps/unity-init:
+	sudo apt-get install -y unity-tweak-tool
+	touch $@
+
 FAIENCE=/usr/share/icons/Faience
 FAENZA=/usr/share/icons/Faenza
 IMG_DIRS=16 22 24 32 48 64 96
 
-stamps/icons:
+stamps/icons: stamps/${wm}-init
 	# okay I know this may sound too much, but it's the best
 	# combination of icons ;)
 	wget -O /tmp/faenza.zip http://faenza-icon-theme.googlecode.com/files/faenza-icon-theme_1.3.zip
@@ -63,8 +67,8 @@ stamps/icons:
 	$(foreach dir,${IMG_DIRS},sudo cp -f ${FAENZA}/apps/$(dir)/keepassx.png ${FAIENCE}/apps/$(dir)/keepass2.png; )
 	sudo cp ${FAENZA}/apps/scalable/firefox-original.svg ${FAIENCE}/apps/scalable/firefox.svg
 	sudo cp ${FAENZA}/apps/scalable/keepassx.svg ${FAIENCE}/apps/scalable/keepass2.svg
-	# now go ahead and change the theme to faience on gnome-tweak-tool
-	gnome-tweak-tool
+	# now go ahead and change the theme to faience on ${wm}-tweak-tool
+	${wm}-tweak-tool
 	touch $@
 
 stamps/cursor:
@@ -78,12 +82,12 @@ stamps/docky:
 	killall docky && docky &
 	touch $@
 
-stamps/gtk-theme: stamps/cursor
+stamps/gtk-theme: stamps/cursor stamps/${wm}-init
 	sudo add-apt-repository ppa:numix/ppa
 	sudo apt-get update
-	sudo apt-get install -y numix-gtk-theme numix-icon-theme numix-plymouth-theme
-	# now go ahead and change the theme on gnome-tweak-tool
-	gnome-tweak-tool
+	sudo apt-get install -y numix-gtk-theme numix-icon-theme
+	# now go ahead and change the theme on ${wm}-tweak-tool
+	${wm}-tweak-tool
 	touch $@
 
 stamps/terminal-theme:
@@ -97,11 +101,24 @@ stamps/gnome-extensions:
 	ln -s ${PWD}/data/gnome-extensions ${HOME}/.local/share/gnome-shell/extensions
 	touch $@
 
+stamps/unity-extensions:
+	sudo apt-get install -y compizconfig-settings-manager compiz-plugins-extra
+	@echo "now we'll open ccsm"
+	@echo "you should:"
+	@echo "go to ubuntu unity plugin -> launcher"
+	@echo "hide launcher: autohide, launcher capture mouse false, reveal edge: .2, reveal pressure: 999, edge overcome pressure 1, mouse pressure decay 1, edge stop 1, menu fade in and rest 0"
+	@echo "check opacity, brightness and set opacity on gvim/terminal"
+	@echo "goto move window and change to ctrl+alt"
+	@echo "goto general options, set desktop size"
+	@echo "goto desktop wall, change bindings"
+	ccsm
+	touch $@
+
 stamps/variety:
 	sudo add-apt-repository ppa:variety/next
 	sudo apt-get update
 	sudo apt-get install variety
 	mkdir -p ${HOME}/.config/variety
-	b/themesash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,banned.txt,*.conf}"
+	/bin/bash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,banned.txt,*.conf}"
 	ln -s ${PWD}/data/themes/variety/* ${HOME}/.config/variety
 	touch $@
