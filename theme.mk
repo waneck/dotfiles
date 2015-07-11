@@ -72,3 +72,12 @@ stamps/gnome-extensions:
 	- mv ${HOME}/.local/share/gnome-shell/extensions ${HOME}/.local/share/gnome-shell/extensions.bkp
 	ln -s ${PWD}/data/gnome-extensions ${HOME}/.local/share/gnome-shell/extensions
 	touch $@
+
+stamps/variety:
+	sudo add-apt-repository ppa:variety/next
+	sudo apt-get update
+	sudo apt-get install variety
+	mkdir -p ${HOME}/.config/variety
+	b/themesash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,banned.txt,*.conf}"
+	ln -s ${PWD}/data/themes/variety/* ${HOME}/.config/variety
+	touch $@
