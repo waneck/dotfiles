@@ -1,6 +1,6 @@
 wm: YOU_MUST_SET_THIS_VARIABLE_TO_gnome_OR_unity
 
-theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/${wm}-extensions stamps/variety
+theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/${wm}-extensions stamps/variety stamps/fonts
 
 .PHONY: theme wm
 
@@ -112,6 +112,11 @@ stamps/unity-extensions:
 	@echo "goto general options, set desktop size"
 	@echo "goto desktop wall, change bindings"
 	ccsm
+	touch $@
+
+stamps/fonts:
+	- mv ${HOME}/.fonts ${HOME}/.fonts.bkp
+	ln -s ${PWD}/data/theme/fonts ${HOME}/.fonts
 	touch $@
 
 stamps/variety:
