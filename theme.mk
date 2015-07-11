@@ -1,4 +1,4 @@
-theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/gnome-extensions
+theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/gnome-extensions stamps/variety
 
 .PHONY: theme
 
