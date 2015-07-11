@@ -1,4 +1,4 @@
-apps: git ocaml vim zsh dev
+apps: git ocaml vim zsh dev stamps/keepass gooogle-earth
 
 dev: stamps/java stamps/mono stamps/devmisc ocaml
 
@@ -67,4 +67,30 @@ stamps/devmisc:
 	sudo cp data/desktop/sqlitestudio.desktop /usr/share/applications/
 	touch $@
 
-.PHONY: zsh ocaml git apps
+KEEPASS=/usr/lib/keepass2/
+
+stamps/keepass:
+	sudo apt-get -y install keepass2
+	sudo mkdir -p ${KEEPASS}/plugins
+	#otp
+	@echo "https://bitbucket.org/devinmartin/keeotp/wiki/Home"
+	wget https://bitbucket.org/devinmartin/keeotp/downloads/KeeOtp-1.3.1-Full.zip -O /tmp/otp.zip
+	rm -rf /tmp/otp
+	mkdir -p /tmp/otp && cd /tmp/otp && unzip ../otp.zip
+	sudo cp tmp/otp/*.plgx ${KEEPASS}/plugins
+	touch $@
+
+stamps/hexchat:
+	sudo apt-get -y install hexchat
+	touch $@
+
+google-earth: stamps/google-earth
+
+stamps/google-earth:
+	# sudo apt-get -y install libgtk2.0-0:i386 libx11-6:i386 libfontconfig:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libsm-dev:i386 lsb-core:i386
+	sudo apt-get install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
+	wget -O /tmp/earth.deb http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb
+	sudo dpkg -i /tmp/earth.deb
+	touch $@
+
+.PHONY: zsh ocaml git apps google-earth
