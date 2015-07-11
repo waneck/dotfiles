@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Transparent Windows Gnome Shell Extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-02 10:26+0100\n"
+"PO-Revision-Date: 2013-11-02 10:30+0100\n"
+"Last-Translator: Jonatan Zeidler <jonatan_zeidler@gmx.de>\n"
+"Language-Team: German <jonatan_zeidler@gmx.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: prefs.js:32
+msgid "Terminal window title (hit enter to confirm):"
+msgstr "Terminal-Fenstertitel (ENTER zum Bestätigen):"
+
+#: prefs.js:36
+msgid "Hide panel indicator"
+msgstr "Indikator verstecken"
+
+#: prefs.js:39
+msgid "Auto apply opacity to terminals"
+msgstr "Automatisch auf Terminals anwenden"
+
+#: prefs.js:42
+msgid "Aply opacity to terminals only"
+msgstr "Deckkraft nur auf Terminals anwenden"
+
+#: prefs.js:45
+msgid "Use inactive opacity"
+msgstr "Andere Deckkraft für inaktive Fenster"
+
+#: prefs.js:49
+msgid "Global opacity"
+msgstr "Globale Deckkraft"
+
+#: prefs.js:57
+msgid "Terminal windows opacity"
+msgstr "Deckkraft für Terminal-Fenster"
+
+#: prefs.js:66
+msgid "Inactive opacity"
+msgstr "Deckkraft inaktiver Fenster"
+
+#: extension.js:15
+msgid "Transparent"
+msgstr "Transparent"
+
+#: extension.js:16
+msgid "Opaque"
+msgstr "Deckend"
+
+#: extension.js:17
+msgid "Tr"
+msgstr "T"
+
+#: extension.js:18
+msgid "Op"
+msgstr "D"
+
+#: extension.js:51
+msgid "Transparent windows"
+msgstr "Fenster transparent"
+
+#: extension.js:56
+msgid "Compact extension indicator"
+msgstr "Kompakter Indikator"
+
+#: extension.js:61
+msgid "Global transparency value"
+msgstr "Globaler Transparenzwert"
+
+#: extension.js:74
+msgid "Active window custom transparency"
+msgstr "Gesonderte Transparenz für aktuell aktives Fenster"
+
+#: extension.js:87
+msgid "Clear active window transparency"
+msgstr "Gesonderte Transparenz für aktuell aktives Fenster zurücksetzen"
+
+#: extension.js:92
+msgid "Clear all custom transparency"
+msgstr "Alle gesonderten Transparenzwerte zurücksetzen"

@@ -1,0 +1,59 @@
+<schemalist gettext-domain="gnome-shell-extensions"> 
+  <schema path="/org/gnome/shell/extensions/transparentwindows/" id="org.gnome.shell.extensions.transparentwindows">
+    <key type="i" name="opacity">
+      <default>225</default>
+      <summary>Opacity</summary>
+      <description>This will decide how transparent your windows are.</description>
+    </key>
+    <key type="i" name="opacityinactive">
+      <default>225</default>
+      <summary>Opacity</summary>
+      <description>This will decide how transparent your inactive windows are.</description>
+    </key>
+    <key type="i" name="useinactive">
+      <default>0</default>
+      <summary>Toggle On/Off</summary>
+      <description>Turn inactive opacity On or Off.</description>
+    </key>
+    <key type="i" name="activeopacity">
+      <default>225</default>
+      <summary>Opacity</summary>
+      <description>This will decide how transparent your active window is.</description>
+    </key>
+    <key type="i" name="mystate">
+      <default>1</default>
+      <summary>Toggle On/Off</summary>
+      <description>Turn opacity On or Off.</description>
+    </key>
+    <key type="i" name="compactindicator">
+      <default>0</default>
+      <summary>Toggle On/Off</summary>
+      <description>Compact panel indicator settings.</description>
+    </key>
+    <key type="i" name="terminalopacity">
+      <default>144</default>
+      <summary>50-255 range of opacity</summary>
+      <description>Opacity value for terminal windows only.</description>
+    </key>
+    <key type="i" name="showinpanel">
+      <default>0</default>
+      <summary>Toggle On/Off</summary>
+      <description>Should the panel item be displayed.</description>
+    </key>
+    <key type="i" name="autoterminal">
+      <default>0</default>
+      <summary>Toggle On/Off</summary>
+      <description>Terminals auto opacity.</description>
+    </key>
+    <key type="i" name="onlyterminal">
+      <default>0</default>
+      <summary>Toggle On/Off</summary>
+      <description>Terminals auto opacity.</description>
+    </key>
+    <key type="s" name="terminal-title">
+      <default>"user@host"</default>
+      <summary>window title</summary>
+      <description>the title of a terminal window, it ussually has this string inside.</description>
+    </key>
+  </schema>
+</schemalist>

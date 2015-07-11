@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-02 10:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: prefs.js:32
+msgid "Terminal window title (hit enter to confirm):"
+msgstr ""
+
+#: prefs.js:36
+msgid "Hide panel indicator"
+msgstr ""
+
+#: prefs.js:39
+msgid "Auto apply opacity to terminals"
+msgstr ""
+
+#: prefs.js:42
+msgid "Aply opacity to terminals only"
+msgstr ""
+
+#: prefs.js:45
+msgid "Use inactive opacity"
+msgstr ""
+
+#: prefs.js:49
+msgid "Global opacity"
+msgstr ""
+
+#: prefs.js:57
+msgid "Terminal windows opacity"
+msgstr ""
+
+#: prefs.js:66
+msgid "Inactive opacity"
+msgstr ""
+
+#: extension.js:15
+msgid "Transparent"
+msgstr ""
+
+#: extension.js:16
+msgid "Opaque"
+msgstr ""
+
+#: extension.js:17
+msgid "Tr"
+msgstr ""
+
+#: extension.js:18
+msgid "Op"
+msgstr ""
+
+#: extension.js:51
+msgid "Transparent windows"
+msgstr ""
+
+#: extension.js:56
+msgid "Compact extension indicator"
+msgstr ""
+
+#: extension.js:61
+msgid "Global transparency value"
+msgstr ""
+
+#: extension.js:74
+msgid "Active window custom transparency"
+msgstr ""
+
+#: extension.js:87
+msgid "Clear active window transparency"
+msgstr ""
+
+#: extension.js:92
+msgid "Clear all custom transparency"
+msgstr ""

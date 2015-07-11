@@ -1,4 +1,4 @@
-theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme
+theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/gnome-extensions
 
 .PHONY: theme
 
@@ -65,4 +65,10 @@ stamps/gtk-theme: stamps/cursor
 stamps/terminal-theme:
 	# install the `alt` theme
 	cd modules/gnome-terminal-colors && ./install.sh
+	touch $@
+
+stamps/gnome-extensions:
+	# back up old 
+	- mv ${HOME}/.local/share/gnome-shell/extensions ${HOME}/.local/share/gnome-shell/extensions.bkp
+	ln -s ${PWD}/data/gnome-extensions ${HOME}/.local/share/gnome-shell/extensions
 	touch $@
