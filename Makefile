@@ -1,5 +1,5 @@
 basic: main keyboard apps
 
-all: basic theme 
+all: basic theme tweaks
 
 include *.mk

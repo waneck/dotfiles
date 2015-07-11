@@ -124,7 +124,7 @@ stamps/variety:
 	sudo apt-get update
 	sudo apt-get install variety
 	mkdir -p ${HOME}/.config/variety
-	/bin/bash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,banned.txt,*.conf}"
+	/bin/bash -c "rm -rf ${HOME}/.config/variety/{pluginconfig,*.conf}"
 	ln -s ${PWD}/data/themes/variety/* ${HOME}/.config/variety
 	touch $@
 
