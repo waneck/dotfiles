@@ -1,4 +1,4 @@
-theme: stamps/icons stamps/gtk-theme stamps/docky
+theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme
 
 .PHONY: theme
 
@@ -60,4 +60,9 @@ stamps/gtk-theme: stamps/cursor
 	sudo apt-get install -y numix-gtk-theme numix-icon-theme numix-plymouth-theme
 	# now go ahead and change the theme on gnome-tweak-tool
 	gnome-tweak-tool
+	touch $@
+
+stamps/terminal-theme:
+	# install the `alt` theme
+	cd modules/gnome-terminal-colors && ./install.sh
 	touch $@

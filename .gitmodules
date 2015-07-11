@@ -1,0 +1,3 @@
+[submodule "modules/gnome-terminal-colors"]
+	path = modules/gnome-terminal-colors
+	url = https://github.com/waneck/gnome-terminal-colors.git
