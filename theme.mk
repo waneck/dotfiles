@@ -1,6 +1,12 @@
-theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/gnome-extensions stamps/variety
+wm: YOU_MUST_SET_THIS_VARIABLE_TO_gnome_OR_unity
 
-.PHONY: theme
+theme: stamps/icons stamps/gtk-theme stamps/docky stamps/terminal-theme stamps/${wm}-extensions stamps/variety
+
+.PHONY: theme wm
+
+stamps/gnome-init:
+	sudo apt-get install -y gnome-tweak-tool
+	touch $@
 
 FAIENCE=/usr/share/icons/Faience
 FAENZA=/usr/share/icons/Faenza
@@ -12,6 +18,15 @@ stamps/icons:
 	wget -O /tmp/faenza.zip http://faenza-icon-theme.googlecode.com/files/faenza-icon-theme_1.3.zip
 	mkdir -p /tmp/faenza
 	cd /tmp/faenza && unzip /tmp/faenza.zip && sudo ./INSTALL
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAENZA}-Darkest/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAENZA}-Darker/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAENZA}-Dark/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAENZA}-Darkest/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAENZA}-Darker/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAENZA}-Dark/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAENZA}-Darkest/apps/16/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAENZA}-Darker/apps/16/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAENZA}-Dark/apps/16/
 	bash -c "sudo rm -f ${FAENZA}{,-Ambiance,-Dark,-Darker,-Darkest}/actions/{32,48,64,96,scalable}/*media*"
 	bash -c "sudo rm -f ${FAENZA}{,-Ambiance,-Dark,-Darker,-Darkest}/actions/{32,48,64,96,scalable}/*log*"
 	#faience
@@ -19,6 +34,15 @@ stamps/icons:
 	mkdir -p /tmp/faience
 	cd /tmp/faience && unzip /tmp/faience.zip && sudo ./INSTALL
 	sudo cp -rf ${FAENZA}-Dark/status/* ${FAIENCE}/status/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAIENCE}/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAIENCE}-Azur/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/24/* ${FAIENCE}/apps/24/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAIENCE}-Ocre/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAIENCE}-Azur/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/22/* ${FAIENCE}-Ocre/apps/22/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAIENCE}/apps/16/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAIENCE}-Azur/apps/16/
+	- sudo cp -f /usr/share/icons/ubuntu-mono-dark/apps/16/* ${FAIENCE}-Ocre/apps/16/
 	bash -c "sudo rm -rf ${FAIENCE}/actions/{32,48,64,96,scalable}"
 	sudo cp -rf ${FAENZA}-Dark/actions/32 ${FAIENCE}/actions
 	sudo cp -rf ${FAENZA}-Dark/actions/48 ${FAIENCE}/actions
