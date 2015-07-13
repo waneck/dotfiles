@@ -34,6 +34,8 @@ stamps/vim:
 	git clone --recursive https://github.com/waneck/vimrc-1.git ${HOME}/.vim_runtime
 	ln -s ${PWD}/data/my_configs.vim ${HOME}/.vim_runtime
 	sh ${HOME}/.vim_runtime/install_awesome_vimrc.sh
+	sudo apt-get install -y build-essential cmake python-dev
+	cd ${HOME}/.vim_runtime/sources_non_forked/youcompleteme && ./install.sh --clang-completer --omnisharp-completer
 	touch $@
 
 stamps/gvim: stamps/vim
