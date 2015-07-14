@@ -8,9 +8,6 @@ set useletters=1
 " only left-hand keys (closest to f)
 set hintkeys=qwertyasdfghzxcvb123456
 
-" Don't autofocus when loaded
-set disable_autofocus=1
-
 " make it behave more like vimperator:
 
 " remove current tab
