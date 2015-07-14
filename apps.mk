@@ -12,19 +12,33 @@ stamps/git:
 	git config --global core.excludesfile ~/.gitignore
 	touch $@
 
-ocaml: stamps/ocaml
+ocaml: stamps/ocaml stamps/camlp4 stamps/opam
 
 stamps/ocaml:
 	# install ocaml from sources to get ocamlopt.opt
-	- sudo apt-get remove ocaml
-	sudo apt-get install -y opam
-	opam init
+	- sudo apt-get remove --purge ocaml opam
 	wget http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.2.tar.xz -O /tmp/ocaml.tar.xz
 	cd /tmp && tar -xvf ocaml.tar.xz && cd ocaml-4.02.2 && ./configure --prefix /usr && make world.opt && sudo make install
 	# I don't know why anyone would prefer ocamlopt over ocamlopt.opt
 	# hmm. maybe this https://xkcd.com/303/
 	sudo mv /usr/bin/ocamlopt /usr/bin/ocamlopt.nopt
 	sudo cp /usr/bin/ocamlopt.opt /usr/bin/ocamlopt
+	sudo mv /usr/bin/ocamlc /usr/bin/ocamlc.nopt
+	sudo cp /usr/bin/ocamlc.opt /usr/bin/ocamlc
+	sudo mv /usr/bin/ocamllex /usr/bin/ocamllex.nopt
+	sudo cp /usr/bin/ocamllex.opt /usr/bin/ocamllex
+	touch $@
+
+stamps/camlp4: stamps/ocaml
+	wget https://github.com/ocaml/camlp4/archive/4.02+6.tar.gz -O /tmp/camlp4.tgz
+	cd /tmp && tar -xvf camlp4.tgz && cd camlp4-4.02-6 && ./configure && make && sudo make install
+	touch $@
+
+stamps/opam: stamps/ocaml
+	# install opam
+	wget https://github.com/ocaml/opam/archive/1.2.2.tar.gz -O /tmp/opam.tar.gz
+	cd /tmp && tar -xvf opam.tar.gz && cd opam-1.2.2 && ./configure --prefix /usr && make lib-ext && make && sudo make install
+	opam init
 	touch $@
 
 vim: stamps/vim stamps/gvim
@@ -101,4 +115,4 @@ stamps/sparkleshare:
 	sudo apt-get install -y sparkleshare
 	touch $@
 
-.PHONY: zsh ocaml git apps google-earth
+.PHONY: zsh ocaml git apps google-earth opam
