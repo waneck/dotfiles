@@ -1,0 +1,39 @@
+" Vrome is a google chrome extension
+
+" Disable Vrome in those sites, Multiple URLs can be separated with ,
+set disablesites=mail.google.com, reader.google.com, www.google.com/reader/view, docs.google.com/spreadsheet, inbox.google.com
+
+" set hintkeys instead of all leters
+set useletters=1
+" only left-hand keys (closest to f)
+set hintkeys=qwertyasdfghzxcvb123456
+
+" Don't autofocus when loaded
+set disable_autofocus=1
+
+" make it behave more like vimperator:
+
+" remove current tab
+map d dc
+unmap dm
+unmap do
+unmap dl
+unmap dr
+unmap dp
+unmap dP
+
+" move tab
+map J gT
+map K gt
+
+" Define search engines. the value should be valid json looks like below.
+" Please remember the first searchengine is the default one. in the below one, it is google
+set searchengines={"google":"https://encrypted.google.com/search?q={{keyword}}", "yahoo":"http://search.yahoo.com/search?p={{keyword}}","wikipedia":"http://en.wikipedia.org/wiki/{{keyword}}","answers":"http://www.answers.com/main/ntquery?s={{keyword}}","yubnub":"http://yubnub.org/parser/parse?command={{keyword}}"}
+
+" You could also add some new searchengines without overwrite build in.
+set searchengines+={"baidu":"http://www.baidu.com/s?wd={{keyword}}"}
+
+set searchengines+={"duckduckgo":"https://duckduckgo.com/?q={{keyword}}"}
+
+" Change default search engine, default is google.
+set defaultsearch=duckduckgo
