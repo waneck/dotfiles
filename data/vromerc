@@ -6,7 +6,7 @@ set disablesites=mail.google.com, reader.google.com, www.google.com/reader/view,
 " set hintkeys instead of all leters
 set useletters=1
 " only left-hand keys (closest to f)
-set hintkeys=qwertyasdfghzxcvb123456
+set hintkeys=fdertgbvcxsw2345xsq1
 
 " make it behave more like vimperator:
 
