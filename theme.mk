@@ -111,6 +111,7 @@ stamps/unity-extensions:
 	@echo "goto move window and change to ctrl+alt"
 	@echo "goto general options, set desktop size"
 	@echo "goto desktop wall, change bindings"
+	@echo "goto move window, change initiate move"
 	ccsm
 	touch $@
 

@@ -41,7 +41,11 @@ stamps/opam: stamps/ocaml
 	opam init
 	touch $@
 
-vim: stamps/vim stamps/gvim
+vim: stamps/vim stamps/gvim stamps/youcompleteme
+
+stamps/youcompleteme:stamps/vim
+	cd ${HOME}/.vim_runtime/sources_non_forked/youcompleteme && ./install.sh --clang-completer
+	touch $@
 
 stamps/vim:
 	sudo apt-get install -y vim ctags
@@ -49,7 +53,6 @@ stamps/vim:
 	ln -s ${PWD}/data/my_configs.vim ${HOME}/.vim_runtime
 	sh ${HOME}/.vim_runtime/install_awesome_vimrc.sh
 	sudo apt-get install -y build-essential cmake python-dev
-	cd ${HOME}/.vim_runtime/sources_non_forked/youcompleteme && ./install.sh --clang-completer --omnisharp-completer
 	touch $@
 
 stamps/gvim: stamps/vim

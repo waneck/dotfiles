@@ -1,5 +1,5 @@
-tweaks: stamp/whitelist-systray
+tweaks: stamps/whitelist-systray
 
-stamp/whitelist-systray:
-	gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
+stamps/whitelist-systray:
+	- gsettings set com.canonical.Unity.Panel systray-whitelist "['all']"
 	touch $@
