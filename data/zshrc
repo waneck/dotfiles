@@ -52,3 +52,12 @@ setopt extended_glob
 bindkey -v
 
 . /home/wnk/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+export UE4=/var/dev/projs/UnrealEngine-4.11/ 
+export PATH=$PATH:$HOME/.local/bin
+export TESSDATA_PREFIX=/var/dev/build/tessdata
+
+export GOPATH=/var/dev/go
+
+setopt no_share_history 
+unsetopt share_history

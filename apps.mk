@@ -118,4 +118,11 @@ stamps/sparkleshare:
 	sudo apt-get install -y sparkleshare
 	touch $@
 
+stamps/tmux: stamps/git
+	sudo apt-get install -y tmux
+	mkdir -p ~/.tmux/plugins
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	ln -s ${PWD}/data/tmux.cong ${HOME}/.tmux.conf
+	touch $@
+
 .PHONY: zsh ocaml git apps google-earth opam

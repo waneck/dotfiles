@@ -1,3 +1,4 @@
 .*.sw?
 *~
 .ycm_extra_conf.pyc
+Session.vim
