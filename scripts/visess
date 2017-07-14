@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Invalid session syntax: Must contain the session name"
+fi
+
+export VISESS="$HOME/.sess/$1.vim"
+export SESS_NAME="$1"
+
+if [ ! -f "$VISESS" ]; then
+  cp "$HOME/.sess/prime.vim" "$VISESS"
+  sed -i -e "s%@@SESS_DIR@@%$PWD%g" "$VISESS"
+  sed -i -e "s%@@SESS_NAME@@%$SESS_NAME%g" "$VISESS"
+fi
+
+CUR=$(dirname "$0")
+
+"$CUR/runsess" "$1" vim -S "$VISESS"

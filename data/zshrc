@@ -53,11 +53,18 @@ bindkey -v
 
 . /home/wnk/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-export UE4=/var/dev/projs/UnrealEngine-4.11/ 
+export UE4=/var/dev/proletariat/UnrealEngine/ 
 export PATH=$PATH:$HOME/.local/bin
 export TESSDATA_PREFIX=/var/dev/build/tessdata
 
 export GOPATH=/var/dev/go
+export PATH=$PATH:$GOPATH/bin
 
 setopt no_share_history 
 unsetopt share_history
+
+export NVM_DIR="/home/wnk/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by travis gem
+[ -f /home/wnk/.travis/travis.sh ] && source /home/wnk/.travis/travis.sh
